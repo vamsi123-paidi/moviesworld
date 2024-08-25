@@ -38,12 +38,55 @@
     font-weight: 400;
 
 }
+@media (max-width:465px){
+    #movie_title{
+        font-family: "Matemasie", sans-serif;
+        font-style: normal;
+        margin-top: 50px;
+        align-items: center;
+        background-color: #2f8d46;
+        background-image: url("img/bg.avif");
+        background-repeat: repeat;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 40px;
+        font-weight: bold;
+        font-weight: 600; 
+    } 
+    #description{
+       font-size: 14px; 
+    }
+
+    
+}
 
 #description {
     margin-top: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
+    font-size: 20px; 
     color: rgba(19, 12, 1, 0.705);
+}
+
+@media (max-width:465px){
+    #movie_title{
+        font-family: "Matemasie", sans-serif;
+        font-style: normal;
+        margin-top: 50px;
+        align-items: center;
+        background-color: #2f8d46;
+        background-image: url("img/bg.avif");
+        background-repeat: repeat;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 40px;
+        font-weight: bold;
+        font-weight: 600; 
+    } 
+    #description{
+       font-size: 18px; 
+    }
+
+    
 }
 
 #Search_input,
