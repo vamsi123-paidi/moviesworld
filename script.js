@@ -25,6 +25,7 @@ async function movieData(movie) {
                         <h5 class="card-title">Title :${title}</h5>
                         <p class="card-text">Movie Year :${year}</p>
                         <p class="card-text">IMDB ID :${imdbid}</p>
+                        <button class="btn btn-outline-danger" id="fav_btn" type="submit">Add to Favroites</button>
                     </div>
                 </div>
             </div>`;
@@ -32,9 +33,16 @@ async function movieData(movie) {
 
     }
     catch {
-        alert("Something went wrong. Please try again.");
+        alert("Please check your spell or enter movie name.");
     }
 }
+async function defaultMovies() {
+    let defaultMovies = ["Avengers"];
+    for (let movie of defaultMovies) {
+        await movieData(movie);
+    }
+}
+
 searchBtn.addEventListener("click", (e) => {
     try {
         e.preventDefault();
@@ -45,3 +53,5 @@ searchBtn.addEventListener("click", (e) => {
         alert('please enter movie name to search')
     }
 })
+
+window.onload = defaultMovies

@@ -8,12 +8,12 @@
     display: flex;
     flex-direction: column;
     color: #f2fafa;
-    background-image: url(img/bg.avif);
+    background-image: url(img/background.avif);
     align-items: center;
     justify-content: center;
 }
 
-#movie_title {
+#movie_title{
     font-family: "Matemasie", sans-serif;
     font-style: normal;
     margin-top: 50px;
@@ -26,12 +26,24 @@
     font-weight: bold;
     font-weight: 800;
 }
+.movieLogo {
+    font-family: "Matemasie", sans-serif;
+    background-color: #2f8d46;
+    background-image: url("img/text.jpg");
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 28px;
+    font-weight: bold;
+    font-weight: 400;
+
+}
 
 #description {
     margin-top: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 20px;
-    color: rgb(243, 236, 228);
+    color: rgba(19, 12, 1, 0.705);
 }
 
 #Search_input,
@@ -42,41 +54,48 @@
 }
 
 #movieCards{
-    margin-top: 30px;
-    background-image: url(img/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 50px;
 }
-#movieCards .card{
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
+.movieCard {
+    background: linear-gradient(135deg, #1f1c2c, #32b8da); 
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.movieCard:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7); 
+}
+
+.moviePoster {
     border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-#movieCards .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    margin-bottom: 50px;
 }
 
-#movieCards .card-body{
-    background-color: rgba(7, 3, 56, 0.753);
+.moviePoster:hover {
+    transform: scale(1.1); 
 }
 
-#movieImg{
-    width: 150px;
-    height:150px;
-    margin-bottom: 10px;
-}
-#movieCards .card-title{
-    font-size: 18px;
-    color: rgb(190, 190, 216);
+.card-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-top: 20px;
+    color: #FFF;
 }
 
-#movieCards .card-text{
-    font-size: 16px;
-    color: floralwhite;
+.card-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95rem;
+    color: #DDD; 
 }
 
-
+#movieImg {
+    max-width: 100%;
+    border-radius: 10px;
+}
