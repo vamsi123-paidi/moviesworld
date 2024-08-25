@@ -1,7 +1,7 @@
 let searchInput = document.getElementById('Search_input');
 let searchBtn = document.getElementById("search_btn")
 let apiKey = "e2e1750c";
-let movieUrl = 'http://www.omdbapi.com/?apikey=' + apiKey + '&page=1&s=';
+let movieUrl = 'https://www.omdbapi.com/?apikey=' + apiKey + '&page=1&s=';
 async function movieData(movie) {
     try {
         let response = await fetch(movieUrl + movie)
