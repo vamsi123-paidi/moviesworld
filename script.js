@@ -10,23 +10,20 @@ document.addEventListener('DOMContentLoaded', () => {
             let data = await response.json();
             let movieCards = document.getElementById("movieCards").querySelector(".row");
             movieCards.innerHTML = '';
-            for (let i = 0; i < data.Search.length; i++) {
-                let title = data.Search[i].Title;
-                let year = data.Search[i].Year;
-                let imdbid = data.Search[i].imdbID;
-                let poster = data.Search[i].Poster;
+            data.Search.forEach((movie, i) => {
+                let { Title, Year, imdbID, Poster } = movie;
 
                 let cardHtml = `
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4">
                     <div class="card movieCard mx-auto">
                         <div class="card-body text-center">
-                            <img src="${poster}" alt="movie poster" class="moviePoster mb-2" id="movieImg">
-                            <h5 class="card-title">Title: ${title}</h5>
-                            <p class="card-text">Movie Year: ${year}</p>
-                            <p class="card-text">IMDB ID: ${imdbid}</p>
+                            <img src="${Poster}" alt="movie poster" class="moviePoster mb-2" id="movieImg">
+                            <h5 class="card-title">Title: ${Title}</h5>
+                            <p class="card-text">Movie Year: ${Year}</p>
+                            <p class="card-text">IMDB ID: ${imdbID}</p>
                             <p id="rating-title">Add rating</p>
                             <div class="ratings">
-                                <div class="stars" data-title="${title}">
+                                <div class="stars" data-title="${Title}">
                                     <input type="radio" name="rating_${i}" id="star5_${i}" value="5">
                                     <label for="star5_${i}">★</label>
                                     <input type="radio" name="rating_${i}" id="star4_${i}" value="4">
@@ -40,32 +37,33 @@ document.addEventListener('DOMContentLoaded', () => {
                                 </div>
                             </div>
                             <div class="ratingValueAfter"></div>
-                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#myModal">Add Review</button>
-                            <button class="btn btn-outline-danger fav-btn" data-title="${title}" data-year="${year}" data-imdbid="${imdbid}" data-poster="${poster}" type="button">Add to Favorites</button>
+                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#myModal_${i}">Add Review</button>
+                            <button class="btn btn-outline-danger fav-btn" data-title="${Title}" data-year="${Year}" data-imdbid="${imdbID}" data-poster="${Poster}" type="button">Add to Favorites</button>
                         </div>
                     </div>
                 </div> 
-                <div id="myModal" class="modal fade" role="dialog">
+                <div id="myModal_${i}" class="modal fade" role="dialog">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" id="close-mark" data-bs-dismiss="modal">&times;</button>
-                                <h4 class="modal-title" id="modal-title">Add Review for the movie</h4>
+                                <h4 class="modal-title">Add Review for ${Title}</h4>
                             </div>
                             <div class="modal-body">
-                                <textarea id="review-text" name="review" rows="4" cols="50">
+                                <textarea id="review-text_${i}" name="review" rows="4" cols="50">
                                    Add your valuable review here.
                                 </textarea>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-danger reviewSubmit" data-title="${title}" data-bs-dismiss="modal">Submit</button>
+                                <button type="button" class="btn btn-outline-danger reviewSubmit" data-title="${Title}" data-imdbid="${imdbID}" data-textareaid="review-text_${i}" data-bs-dismiss="modal">Submit</button>
                             </div>
                         </div>
                     </div>
                 </div>`;
 
                 movieCards.innerHTML += cardHtml;
-            }
+            });
+
             document.querySelectorAll('.fav-btn').forEach(button => {
                 button.addEventListener('click', (e) => {
                     let movieDetails = {
@@ -77,6 +75,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     addToFavorites(movieDetails);
                 });
             });
+
+            document.querySelectorAll('.reviewSubmit').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    let reviewDetails = {
+                        title: e.target.getAttribute('data-title'),
+                        imdbid: e.target.getAttribute('data-imdbid'),
+                        text: document.getElementById(e.target.getAttribute('data-textareaid')).value.trim()
+                    };
+                    addToReviews(reviewDetails);
+                });
+            });
+
             document.querySelectorAll('.stars input').forEach(star => {
                 star.addEventListener('change', (e) => {
                     let ratingValue = e.target.value;
@@ -84,23 +94,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert(`You have given ${ratingValue} stars to ${dataTitle}`);
                 });
             });
-            document.querySelectorAll('.reviewSubmit').forEach(button =>{
-                button.addEventListener("click",(e)=>{
-                    let dataTitle = e.target.getAttribute('data-title');
-                    alert(`your review for ${dataTitle} is submitted sucessfuly`)
-                })
-            })
 
         } catch {
-            alert("Please check your spell or enter a movie name.");
+            alert("Please check your spelling or enter a movie name.");
         }
     }
 
     function addToFavorites(movie) {
-        let favorites = JSON.parse(localStorage.getItem('favorites'));
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
         favorites.push(movie);
         localStorage.setItem('favorites', JSON.stringify(favorites));
         alert(`${movie.title} has been added to your favorites!`);
+    }
+
+    function addToReviews(review) {
+        let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+        reviews.push(review);
+        localStorage.setItem('reviews', JSON.stringify(reviews));
+        alert(`Check your review of ${review.title} on the review page!`);
     }
 
     async function defaultMovies() {

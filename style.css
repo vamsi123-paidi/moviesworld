@@ -224,3 +224,58 @@
         font-size: 8px;
     } 
 }
+
+/* \\styling for review page\\ */
+/* General Styles */
+body {
+    background-color: #1c1c1c;
+    font-family: 'Arial', sans-serif;
+    color: #f8f9fa;
+}
+
+/* Container for review cards */
+#reviewsCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+/* Individual review card styling */
+.reviewCard {
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 8px;
+    max-width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.reviewCard:hover {
+    transform: translateY(-5px);
+}
+
+.reviewCard .card-body {
+    padding: 1.5rem;
+}
+.reviewCard .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ff5733;
+    margin-bottom: 0.75rem;
+}
+
+.reviewCard .card-text {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    color: #312eee;
+}
+
+#no-reviews {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff5733;
+    margin-top: 2rem;
+    text-align: center;
+}
