@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             <h5 class="card-title">Title: ${Title}</h5>
                             <p class="card-text">Movie Year: ${Year}</p>
                             <p class="card-text">IMDB ID: ${imdbID}</p>
-                            <p id="rating-title">Add rating</p>
                             <div class="ratings">
                                 <div class="stars" data-title="${Title}">
                                     <input type="radio" name="rating_${i}" id="star5_${i}" value="5">
