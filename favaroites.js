@@ -40,4 +40,4 @@ function removeFromFavorites(imdbid) {
     loadFavorites();
 }
 
-document.addEventListener('DOMContentLoaded', loadFavorites);
+document.addEventListener('DOMContentLoaded',loadFavorites);

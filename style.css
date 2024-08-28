@@ -197,18 +197,18 @@
     /* border-radius: 50%; */
     /* background-color: #1f1c2c; */
 }
-#myModal{
+.myModal{
     background-color: black;
     /* display: flex; */
     /* justify-content: center; */
     /* align-items: center; */
     /* height: 100%; */
 }
-#modal-title{
+.modal-title{
     font-family:"Matemasie", sans-serif ;
     color: rgb(230, 13, 13);
 }
-#review-text{
+.review-text{
     /* max-width: 600px; */
     /* max-height: 700px; */
     width: 100%;
@@ -226,14 +226,12 @@
 }
 
 /* \\styling for review page\\ */
-/* General Styles */
 body {
     background-color: #1c1c1c;
     font-family: 'Arial', sans-serif;
     color: #f8f9fa;
 }
 
-/* Container for review cards */
 #reviewsCards {
     display: flex;
     flex-wrap: wrap;
@@ -242,7 +240,6 @@ body {
     padding: 2rem;
 }
 
-/* Individual review card styling */
 .reviewCard {
     background-color: #2c2c2c;
     border: 1px solid #444;

@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <h4 class="modal-title">Add Review for ${Title}</h4>
                             </div>
                             <div class="modal-body">
-                                <textarea id="review-text_${i}" name="review" rows="4" cols="50">
+                                <textarea id="review-text_${i}" class="review-text" name="review" rows="4" cols="50">
                                    Add your valuable review here.
                                 </textarea>
                             </div>
