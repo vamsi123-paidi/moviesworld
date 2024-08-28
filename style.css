@@ -162,14 +162,14 @@
 }
 .stars label{
     font-size: 1.8rem;
-    color:red;
+    color:gold;
     cursor: pointer;
 }
 .stars input[type="radio"]{
     display: none;
 }
 .stars input[type="radio"]:Checked ~ label{
-    color: gold;
+    color: red;
 } 
 .stars label:hover,
 .stars label:hover~label{

@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                 </div>
                             </div>
                             <div class="ratingValueAfter"></div>
-                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#myModal_${i}">Add Review</button>
-                            <button class="btn btn-outline-danger fav-btn" data-title="${Title}" data-year="${Year}" data-imdbid="${imdbID}" data-poster="${Poster}" type="button">Add to Favorites</button>
+                            <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#myModal_${i}">Add Review</button>
+                            <button class="btn btn-outline-warning fav-btn" data-title="${Title}" data-year="${Year}" data-imdbid="${imdbID}" data-poster="${Poster}" type="button">Add to Favorites</button>
                         </div>
                     </div>
                 </div> 
