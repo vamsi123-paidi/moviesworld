@@ -2,12 +2,13 @@
     box-sizing: border-box;
     font-family: 'Times New Roman', Times, serif;
     padding: 0;
+    /* background-color: black; */
 }
 
 #main_container {
     display: flex;
     flex-direction: column;
-    color: #f2fafa;
+    color: black;
     background-image: url(img/background.avif);
     align-items: center;
     justify-content: center;
@@ -102,6 +103,8 @@
 .movieCard {
     background: linear-gradient(135deg, #1f1c2c, #32b8da); 
     border: none;
+    /* max-width: 300px; */
+    /* max-height: 450px; */
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -114,7 +117,10 @@
 }
 
 .moviePoster {
-    border-radius: 10px;
+    border-radius: 10px;    
+    /* max-width: 300px; */
+    /* max-height: 100px; */
+    /* object-fit: cover; */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
     margin-bottom: 50px;
@@ -141,4 +147,80 @@
 #movieImg {
     max-width: 100%;
     border-radius: 10px;
+}
+#rating-title{
+    color: #FFF;
+    font-size: 1.4rem;
+    font-weight: 400;
+    /* margin-bottom: 20px; */
+}
+.stars{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.stars label{
+    font-size: 1.8rem;
+    color:red;
+    cursor: pointer;
+}
+.stars input[type="radio"]{
+    display: none;
+}
+.stars input[type="radio"]:Checked ~ label{
+    color: gold;
+} 
+.stars label:hover,
+.stars label:hover~label{
+    color:blue;
+}
+.ratingValueAfter{
+    color: #FFF;
+    font-size: 1.4rem;
+    font-weight: 400;
+    /* margin-bottom: 20px; */
+}
+
+#no-favorite{
+   color: white;
+   margin-top: 25px;
+   font-size: 24px;
+   text-align: center;
+   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#close-mark{
+    color: red;
+    font-size: 30px;
+    border: none;
+    /* padding: 10px 10px 10px 10px; */
+    /* border-radius: 50%; */
+    /* background-color: #1f1c2c; */
+}
+#myModal{
+    background-color: black;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* height: 100%; */
+}
+#modal-title{
+    font-family:"Matemasie", sans-serif ;
+    color: rgb(230, 13, 13);
+}
+#review-text{
+    /* max-width: 600px; */
+    /* max-height: 700px; */
+    width: 100%;
+    height: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    /* text-align: start; */
+    color: #DDD;
+    border-radius: 10px;
+    background-color: black;
+}
+@media (max-width=400px) {
+    #modal-title{
+        font-size: 8px;
+    } 
 }

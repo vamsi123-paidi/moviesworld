@@ -7,60 +7,14 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body>
-    <div class="container">
-        <h2 class="text-center my-4">My Favorite Movies</h2>
-        <div class="row" id="favoritesCards">
+<body class="bg-dark">
+    <div class="container-fluid">
+        <h2 class="text-center my-4 text-light">My Favorite Movies</h2>
+        <div class="row text-center" id="favoritesCards">
 
         </div>
-        <a href="index.html" style="margin-left: 69px;"><button class="btn btn-outline-dark" id="search_btn" type="submit">Go to home page</button></a>
-
+        <a href="index.html"><button class="btn btn-outline-light" id="search_btn" type="submit">Go to home page</button></a>
     </div>
-
-    <script>
-        function loadFavorites() {
-            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-            let favoritesCards = document.getElementById("favoritesCards");
-
-            if (favorites.length === 0) {
-                favoritesCards.innerHTML = '<p class="text-center">No favorite movies yet.</p>';
-                return;
-            }
-
-            favoritesCards.innerHTML = '';
-
-            favorites.forEach(movie => {
-                let cardHtml = `
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4">
-                    <div class="card movieCard mx-auto">
-                        <div class="card-body text-center">
-                            <img src="${movie.poster}" alt="movie poster" class="moviePoster mb-2">
-                            <h5 class="card-title">Title: ${movie.title}</h5>
-                            <p class="card-text">Movie Year: ${movie.year}</p>
-                            <p class="card-text">IMDB ID: ${movie.imdbid}</p>
-                            <button class="btn btn-outline-danger remove-fav-btn" data-imdbid="${movie.imdbid}">Remove from Favorites</button>
-                        </div>
-                    </div>
-                </div>`;
-                favoritesCards.innerHTML += cardHtml;
-            });
-
-            document.querySelectorAll('.remove-fav-btn').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    let imdbid = e.target.getAttribute('data-imdbid');
-                    removeFromFavorites(imdbid);
-                });
-            });
-        }
-
-        function removeFromFavorites(imdbid) {
-            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-            favorites = favorites.filter(movie => movie.imdbid !== imdbid);
-            localStorage.setItem('favorites', JSON.stringify(favorites));
-            loadFavorites();
-        }
-
-        document.addEventListener('DOMContentLoaded', loadFavorites);
-    </script>
+    <script src="favaroites.js"></script>
 </body>
 </html>
