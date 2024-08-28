@@ -220,7 +220,7 @@
     background-color: black;
 }
 @media (max-width=400px) {
-    #modal-title{
+    .modal-title{
         font-size: 8px;
     } 
 }
