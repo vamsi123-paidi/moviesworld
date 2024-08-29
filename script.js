@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div> 
                 <div id="myModal_${i}" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" id="close-mark" data-bs-dismiss="modal">&times;</button>
